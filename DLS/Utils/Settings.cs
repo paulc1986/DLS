@@ -31,6 +31,17 @@ namespace DLS.Utils
         public static Keys LIGHT_INDL { get; } = INI.ReadEnum("Keyboard", "IndL", Keys.OemMinus);
         public static Keys LIGHT_INDR { get; } = INI.ReadEnum("Keyboard", "IndR", Keys.Oemplus);
         public static Keys LIGHT_HAZRD { get; } = INI.ReadEnum("Keyboard", "Hazard", Keys.Back);
+<<<<<<< Updated upstream
+=======
+
+        //add by paulchopping1986
+        public static Keys LIGHT_SIGN { get; } = INI.ReadEnum("Keyboard", "SignKey", Keys.NumPad5);
+        public static Keys LIGHT_TAKEDOWN { get; } = INI.ReadEnum("Keyboard", "TakedownKey", Keys.NumPad8);
+        public static Keys LIGHT_ALLYLEFT { get; } = INI.ReadEnum("Keyboard", "LeftAllyKey", Keys.NumPad4);
+        public static Keys LIGHT_ALLYRIGHT { get; } = INI.ReadEnum("Keyboard", "RightAllyKey", Keys.NumPad6);
+        public static Keys LIGHT_REARLIGHTS { get; } = INI.ReadEnum("Keyboard", "RearLightKey", Keys.NumPad2);
+        //end add by paulchopping1986
+>>>>>>> Stashed changes
 
         // Settings
         public static bool SET_SCNDLS { get; } = INI.ReadBoolean("Settings", "SirenControlNonDLS", true);

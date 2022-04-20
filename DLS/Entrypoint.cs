@@ -31,6 +31,19 @@ namespace DLS
         public static bool SCforNDLS = true;
         public static bool AILightsC = true;
         public static bool IndEnabled = true;
+<<<<<<< Updated upstream
+=======
+
+
+        // add by paulchopping1986
+        public static bool SignEnabled = true;
+        public static bool TakedownEnabled = true;
+        public static bool AllyEnabled = true;
+        public static bool RearLightEnabled = true;
+        // end add by paulchopping1986
+
+
+>>>>>>> Stashed changes
         public static bool BLightsEnabled = true;
         public static bool UIEnabled = true;
         public static bool SirenKill = false;

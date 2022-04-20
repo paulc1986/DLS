@@ -9,7 +9,11 @@ namespace DLS.UI
         {
             Position = position;
             Size = size;
-            Texture = Resources.GetTextureFromResource(resource);
+          
+                Texture = Resources.GetTextureFromResource(resource);
+           
+           
+          
         }
 
         internal Sprite(Texture texture, Point position, Size size)

@@ -13,11 +13,19 @@ namespace DLS.UI
             {
                 string filePath = tempFiles.AddExtension("png");
 
-                resource.Save(filePath);
-                if (File.Exists(filePath))
+                try // add try
                 {
-                    return Game.CreateTextureFromFile(filePath);
+                    resource.Save(filePath);
+                    if (File.Exists(filePath))
+                    {
+                        return Game.CreateTextureFromFile(filePath);
+                    }
                 }
+                catch 
+                {
+                    return null;
+                }
+               
             }
             return null;
         }

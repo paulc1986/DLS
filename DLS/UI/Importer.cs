@@ -63,6 +63,47 @@ namespace DLS.UI
                         case "ext1_on":
                             UIManager.Ext1_On = new Sprite(Game.CreateTextureFromFile(file), new System.Drawing.Point(customUI.OffsetX - customUI.Width, customUI.OffsetY - customUI.Height), new System.Drawing.Size(customUI.Width, customUI.Height));
                             break;
+
+                   //add by paulchopping1986
+
+                        case "sign_off":
+                            UIManager.Sign_Off = new Sprite(Game.CreateTextureFromFile(file), new System.Drawing.Point(customUI.OffsetX - customUI.Width, customUI.OffsetY - customUI.Height), new System.Drawing.Size(customUI.Width, customUI.Height));
+                            break;
+                        case "sign_on":
+                            UIManager.Sign_On = new Sprite(Game.CreateTextureFromFile(file), new System.Drawing.Point(customUI.OffsetX - customUI.Width, customUI.OffsetY - customUI.Height), new System.Drawing.Size(customUI.Width, customUI.Height));
+                            break;
+                        case "takedown_off":
+                            UIManager.Takedown_Off = new Sprite(Game.CreateTextureFromFile(file), new System.Drawing.Point(customUI.OffsetX - customUI.Width, customUI.OffsetY - customUI.Height), new System.Drawing.Size(customUI.Width, customUI.Height));
+                            break;
+                        case "takedown_on":
+                            UIManager.Takedown_On = new Sprite(Game.CreateTextureFromFile(file), new System.Drawing.Point(customUI.OffsetX - customUI.Width, customUI.OffsetY - customUI.Height), new System.Drawing.Size(customUI.Width, customUI.Height));
+                            break;
+                        case "allyleft_off":
+                            UIManager.AllyLeft_Off = new Sprite(Game.CreateTextureFromFile(file), new System.Drawing.Point(customUI.OffsetX - customUI.Width, customUI.OffsetY - customUI.Height), new System.Drawing.Size(customUI.Width, customUI.Height));
+                            break;
+                        case "allyleft_on":
+                            UIManager.AllyLeft_On = new Sprite(Game.CreateTextureFromFile(file), new System.Drawing.Point(customUI.OffsetX - customUI.Width, customUI.OffsetY - customUI.Height), new System.Drawing.Size(customUI.Width, customUI.Height));
+                            break;
+                        case "allyright_off":
+                            UIManager.AllyRight_Off = new Sprite(Game.CreateTextureFromFile(file), new System.Drawing.Point(customUI.OffsetX - customUI.Width, customUI.OffsetY - customUI.Height), new System.Drawing.Size(customUI.Width, customUI.Height));
+                            break;
+                        case "allyright_on":
+                            UIManager.AllyRight_On = new Sprite(Game.CreateTextureFromFile(file), new System.Drawing.Point(customUI.OffsetX - customUI.Width, customUI.OffsetY - customUI.Height), new System.Drawing.Size(customUI.Width, customUI.Height));
+                            break;
+                        case "rearlight_off":
+                            UIManager.RearLight_Off = new Sprite(Game.CreateTextureFromFile(file), new System.Drawing.Point(customUI.OffsetX - customUI.Width, customUI.OffsetY - customUI.Height), new System.Drawing.Size(customUI.Width, customUI.Height));
+                            break;
+                        case "rearlight_on":
+                            UIManager.RearLight_On = new Sprite(Game.CreateTextureFromFile(file), new System.Drawing.Point(customUI.OffsetX - customUI.Width, customUI.OffsetY - customUI.Height), new System.Drawing.Size(customUI.Width, customUI.Height));
+                            break;
+
+                        //end add by paulchopping1986
+
+
+
+
+
+
                         case "intlt_off":
                             UIManager.Intlt_Off = new Sprite(Game.CreateTextureFromFile(file), new System.Drawing.Point(customUI.OffsetX - customUI.Width, customUI.OffsetY - customUI.Height), new System.Drawing.Size(customUI.Width, customUI.Height));
                             break;
@@ -325,6 +366,42 @@ namespace DLS.UI
                         case "ext1_on":
                             UIManager.Ext1_On = new Sprite(Game.CreateTextureFromFile(file), new System.Drawing.Point(customUI.OffsetX - customUI.Width, customUI.OffsetY - customUI.Height), new System.Drawing.Size(customUI.Width, customUI.Height));
                             break;
+
+                        //add by paulchopping1986
+
+                        case "sign_off":
+                            UIManager.Sign_Off = new Sprite(Game.CreateTextureFromFile(file), new System.Drawing.Point(customUI.OffsetX - customUI.Width, customUI.OffsetY - customUI.Height), new System.Drawing.Size(customUI.Width, customUI.Height));
+                            break;
+                        case "sign_on":
+                            UIManager.Sign_On = new Sprite(Game.CreateTextureFromFile(file), new System.Drawing.Point(customUI.OffsetX - customUI.Width, customUI.OffsetY - customUI.Height), new System.Drawing.Size(customUI.Width, customUI.Height));
+                            break;
+                        case "takedown_off":
+                            UIManager.Takedown_Off = new Sprite(Game.CreateTextureFromFile(file), new System.Drawing.Point(customUI.OffsetX - customUI.Width, customUI.OffsetY - customUI.Height), new System.Drawing.Size(customUI.Width, customUI.Height));
+                            break;
+                        case "takedown_on":
+                            UIManager.Takedown_On = new Sprite(Game.CreateTextureFromFile(file), new System.Drawing.Point(customUI.OffsetX - customUI.Width, customUI.OffsetY - customUI.Height), new System.Drawing.Size(customUI.Width, customUI.Height));
+                            break;
+                        case "allyleft_off":
+                            UIManager.AllyLeft_Off = new Sprite(Game.CreateTextureFromFile(file), new System.Drawing.Point(customUI.OffsetX - customUI.Width, customUI.OffsetY - customUI.Height), new System.Drawing.Size(customUI.Width, customUI.Height));
+                            break;
+                        case "allyleft_on":
+                            UIManager.AllyLeft_On = new Sprite(Game.CreateTextureFromFile(file), new System.Drawing.Point(customUI.OffsetX - customUI.Width, customUI.OffsetY - customUI.Height), new System.Drawing.Size(customUI.Width, customUI.Height));
+                            break;
+                        case "allyright_off":
+                            UIManager.AllyRight_Off = new Sprite(Game.CreateTextureFromFile(file), new System.Drawing.Point(customUI.OffsetX - customUI.Width, customUI.OffsetY - customUI.Height), new System.Drawing.Size(customUI.Width, customUI.Height));
+                            break;
+                        case "allyright_on":
+                            UIManager.AllyRight_On = new Sprite(Game.CreateTextureFromFile(file), new System.Drawing.Point(customUI.OffsetX - customUI.Width, customUI.OffsetY - customUI.Height), new System.Drawing.Size(customUI.Width, customUI.Height));
+                            break;
+                        case "rearlight_off":
+                            UIManager.RearLight_Off = new Sprite(Game.CreateTextureFromFile(file), new System.Drawing.Point(customUI.OffsetX - customUI.Width, customUI.OffsetY - customUI.Height), new System.Drawing.Size(customUI.Width, customUI.Height));
+                            break;
+                        case "rearlight_on":
+                            UIManager.RearLight_On = new Sprite(Game.CreateTextureFromFile(file), new System.Drawing.Point(customUI.OffsetX - customUI.Width, customUI.OffsetY - customUI.Height), new System.Drawing.Size(customUI.Width, customUI.Height));
+                            break;
+
+                        //end add by paulchopping1986
+
                         case "intlt_off":
                             UIManager.Intlt_Off = new Sprite(Game.CreateTextureFromFile(file), new System.Drawing.Point(customUI.OffsetX - customUI.Width, customUI.OffsetY - customUI.Height), new System.Drawing.Size(customUI.Width, customUI.Height));
                             break;
@@ -549,6 +626,23 @@ namespace DLS.UI
             UIManager.Ext1_Off = new Sprite(Properties.Resources.ext1_off, new System.Drawing.Point(UIManager.offsetX - UIManager.sizeX, UIManager.offsetY - UIManager.sizeY), new System.Drawing.Size(UIManager.sizeX, UIManager.sizeY));
             UIManager.Ext2_On = new Sprite(Properties.Resources.ext2_on, new System.Drawing.Point(UIManager.offsetX - UIManager.sizeX, UIManager.offsetY - UIManager.sizeY), new System.Drawing.Size(UIManager.sizeX, UIManager.sizeY));
             UIManager.Ext2_Off = new Sprite(Properties.Resources.ext2_off, new System.Drawing.Point(UIManager.offsetX - UIManager.sizeX, UIManager.offsetY - UIManager.sizeY), new System.Drawing.Size(UIManager.sizeX, UIManager.sizeY));
+
+            //add by paulchopping1986
+            UIManager.Sign_Off = new Sprite(Properties.Resources.sign_off, new System.Drawing.Point(UIManager.offsetX - UIManager.sizeX, UIManager.offsetY - UIManager.sizeY), new System.Drawing.Size(UIManager.sizeX, UIManager.sizeY));
+            UIManager.Sign_On = new Sprite(Properties.Resources.sign_on, new System.Drawing.Point(UIManager.offsetX - UIManager.sizeX, UIManager.offsetY - UIManager.sizeY), new System.Drawing.Size(UIManager.sizeX, UIManager.sizeY));
+            UIManager.Takedown_Off = new Sprite(Properties.Resources.takedown_off, new System.Drawing.Point(UIManager.offsetX - UIManager.sizeX, UIManager.offsetY - UIManager.sizeY), new System.Drawing.Size(UIManager.sizeX, UIManager.sizeY));
+            UIManager.Takedown_On = new Sprite(Properties.Resources.takedown_on, new System.Drawing.Point(UIManager.offsetX - UIManager.sizeX, UIManager.offsetY - UIManager.sizeY), new System.Drawing.Size(UIManager.sizeX, UIManager.sizeY));
+            UIManager.AllyLeft_Off = new Sprite(Properties.Resources.allyleft_off, new System.Drawing.Point(UIManager.offsetX - UIManager.sizeX, UIManager.offsetY - UIManager.sizeY), new System.Drawing.Size(UIManager.sizeX, UIManager.sizeY));
+            UIManager.AllyLeft_On = new Sprite(Properties.Resources.allyleft_on, new System.Drawing.Point(UIManager.offsetX - UIManager.sizeX, UIManager.offsetY - UIManager.sizeY), new System.Drawing.Size(UIManager.sizeX, UIManager.sizeY));
+            UIManager.AllyRight_Off = new Sprite(Properties.Resources.allyright_off, new System.Drawing.Point(UIManager.offsetX - UIManager.sizeX, UIManager.offsetY - UIManager.sizeY), new System.Drawing.Size(UIManager.sizeX, UIManager.sizeY));
+            UIManager.AllyRight_On = new Sprite(Properties.Resources.allyright_on, new System.Drawing.Point(UIManager.offsetX - UIManager.sizeX, UIManager.offsetY - UIManager.sizeY), new System.Drawing.Size(UIManager.sizeX, UIManager.sizeY));
+            UIManager.RearLight_Off = new Sprite(Properties.Resources.rearlight_off, new System.Drawing.Point(UIManager.offsetX - UIManager.sizeX, UIManager.offsetY - UIManager.sizeY), new System.Drawing.Size(UIManager.sizeX, UIManager.sizeY));
+            UIManager.RearLight_Off = new Sprite(Properties.Resources.rearlight_on, new System.Drawing.Point(UIManager.offsetX - UIManager.sizeX, UIManager.offsetY - UIManager.sizeY), new System.Drawing.Size(UIManager.sizeX, UIManager.sizeY));
+            //end add by paulchopping1986
+
+
+
+
             UIManager.Hazard_On = new Sprite(Properties.Resources.hazard_on, new System.Drawing.Point(UIManager.offsetX - UIManager.sizeX, UIManager.offsetY - UIManager.sizeY), new System.Drawing.Size(UIManager.sizeX, UIManager.sizeY));
             UIManager.Hazard_Off = new Sprite(Properties.Resources.hazard_off, new System.Drawing.Point(UIManager.offsetX - UIManager.sizeX, UIManager.offsetY - UIManager.sizeY), new System.Drawing.Size(UIManager.sizeX, UIManager.sizeY));
             UIManager.Lind_On = new Sprite(Properties.Resources.lind_on, new System.Drawing.Point(UIManager.offsetX - UIManager.sizeX, UIManager.offsetY - UIManager.sizeY), new System.Drawing.Size(UIManager.sizeX, UIManager.sizeY));

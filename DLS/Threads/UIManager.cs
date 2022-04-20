@@ -68,6 +68,28 @@ namespace DLS.Threads
         // Interior Light
         internal static Sprite Intlt_On;
         internal static Sprite Intlt_Off;
+
+        //add by paulchopping1986
+
+        // Sign
+        internal static Sprite Sign_On = new Sprite(Properties.Resources.sign_off, new Point(1920 - sizeX, 1080 - sizeY), new Size(sizeX, sizeY));
+        internal static Sprite Sign_Off = new Sprite(Properties.Resources.sign_on, new Point(1920 - sizeX, 1080 - sizeY), new Size(sizeX, sizeY));
+        // Takedown
+        internal static Sprite Takedown_On = new Sprite(Properties.Resources.takedown_on, new Point(1920 - sizeX, 1080 - sizeY), new Size(sizeX, sizeY));
+        internal static Sprite Takedown_Off = new Sprite(Properties.Resources.takedown_off, new Point(1920 - sizeX, 1080 - sizeY), new Size(sizeX, sizeY));
+        // Ally Left
+        internal static Sprite AllyLeft_On = new Sprite(Properties.Resources.allyleft_on, new Point(1920 - sizeX, 1080 - sizeY), new Size(sizeX, sizeY));
+        internal static Sprite AllyLeft_Off = new Sprite(Properties.Resources.allyleft_off, new Point(1920 - sizeX, 1080 - sizeY), new Size(sizeX, sizeY));
+        // Ally right
+        internal static Sprite AllyRight_On = new Sprite(Properties.Resources.allyright_on, new Point(1920 - sizeX, 1080 - sizeY), new Size(sizeX, sizeY));
+        internal static Sprite AllyRight_Off = new Sprite(Properties.Resources.allyright_off, new Point(1920 - sizeX, 1080 - sizeY), new Size(sizeX, sizeY));
+        // Rear Light
+        internal static Sprite RearLight_On = new Sprite(Properties.Resources.rearlight_on, new Point(1920 - sizeX, 1080 - sizeY), new Size(sizeX, sizeY));
+        internal static Sprite RearLight_Off = new Sprite(Properties.Resources.rearlight_off, new Point(1920 - sizeX, 1080 - sizeY), new Size(sizeX, sizeY));
+
+        //end add by paulchopping1986
+
+
         // Steady Burn
         internal static Sprite SB_On;
         internal static Sprite SB_Off;
@@ -158,6 +180,21 @@ namespace DLS.Threads
             Tawarn_Off = new Sprite(Properties.Resources.tawarn_off, new Point(offsetX - sizeX, offsetY - sizeY), new Size(sizeX, sizeY));
             Intlt_On = new Sprite(Properties.Resources.intlt_on, new Point(offsetX - sizeX, offsetY - sizeY), new Size(sizeX, sizeY));
             Intlt_Off = new Sprite(Properties.Resources.intlt_off, new Point(offsetX - sizeX, offsetY - sizeY), new Size(sizeX, sizeY));
+
+            // add by paulchopping1986
+            Sign_On = new Sprite(Properties.Resources.sign_on, new Point(offsetX - sizeX, offsetY - sizeY), new Size(sizeX, sizeY));
+            Sign_Off = new Sprite(Properties.Resources.sign_off, new Point(offsetX - sizeX, offsetY - sizeY), new Size(sizeX, sizeY));
+            Takedown_On = new Sprite(Properties.Resources.takedown_on, new Point(offsetX - sizeX, offsetY - sizeY), new Size(sizeX, sizeY));
+            Takedown_Off = new Sprite(Properties.Resources.takedown_off, new Point(offsetX - sizeX, offsetY - sizeY), new Size(sizeX, sizeY));
+            AllyLeft_On = new Sprite(Properties.Resources.allyleft_on, new Point(offsetX - sizeX, offsetY - sizeY), new Size(sizeX, sizeY));
+            AllyLeft_Off = new Sprite(Properties.Resources.allyleft_off, new Point(offsetX - sizeX, offsetY - sizeY), new Size(sizeX, sizeY));
+            AllyRight_On = new Sprite(Properties.Resources.allyright_on, new Point(offsetX - sizeX, offsetY - sizeY), new Size(sizeX, sizeY));
+            AllyRight_Off = new Sprite(Properties.Resources.allyright_off, new Point(offsetX - sizeX, offsetY - sizeY), new Size(sizeX, sizeY));
+            RearLight_On = new Sprite(Properties.Resources.rearlight_on, new Point(offsetX - sizeX, offsetY - sizeY), new Size(sizeX, sizeY));
+            RearLight_Off = new Sprite(Properties.Resources.rearlight_off, new Point(offsetX - sizeX, offsetY - sizeY), new Size(sizeX, sizeY));
+            //end add by paulchopping1986
+
+
             SB_On = new Sprite(Properties.Resources.sb_on, new Point(offsetX - sizeX, offsetY - sizeY), new Size(sizeX, sizeY));
             SB_Off = new Sprite(Properties.Resources.sb_off, new Point(offsetX - sizeX, offsetY - sizeY), new Size(sizeX, sizeY));
             Blkt_On = new Sprite(Properties.Resources.blkt_on, new Point(offsetX - sizeX, offsetY - sizeY), new Size(sizeX, sizeY));
@@ -389,6 +426,14 @@ namespace DLS.Threads
                         Intlt_On.Draw(e.Graphics);
                     else
                         Intlt_Off.Draw(e.Graphics);
+<<<<<<< Updated upstream
+=======
+
+
+
+
+
+>>>>>>> Stashed changes
                     if (PlayerController.manButtonDown)
                         Manual_On.Draw(e.Graphics);
                     else
@@ -397,6 +442,49 @@ namespace DLS.Threads
                         Blkt_On.Draw(e.Graphics);
                     else
                         Blkt_Off.Draw(e.Graphics);
+
+
+
+
+                    // add by paulchopping1986
+
+                    //Sign
+                  
+                    if (PlayerController.signOn)
+                        Sign_On.Draw(e.Graphics);
+                    else
+                        Sign_Off.Draw(e.Graphics);
+
+                    //Takedown
+                    if (PlayerController.takedownOn)
+                        Takedown_On.Draw(e.Graphics);
+                    else
+                        Takedown_Off.Draw(e.Graphics);
+
+                    //Left Ally
+                    if (PlayerController.leftallyOn)
+                        AllyLeft_On.Draw(e.Graphics);
+                    else
+                        AllyLeft_Off.Draw(e.Graphics);
+
+                    //Right Ally
+                    if (PlayerController.rightallyOn)
+                        AllyRight_On.Draw(e.Graphics);
+                    else
+                        AllyRight_Off.Draw(e.Graphics);
+
+                    //Rear Lights
+                    if (PlayerController.rearlightOn)
+                        RearLight_On.Draw(e.Graphics);
+                    else
+                        RearLight_Off.Draw(e.Graphics);
+
+                    //end add by paulchopping1986
+
+
+
+
+
                     if (UIHelper.dlsModel != null)
                     {
                         DLSModel dlsModel = UIHelper.dlsModel;

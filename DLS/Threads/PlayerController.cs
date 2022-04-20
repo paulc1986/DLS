@@ -20,6 +20,23 @@ namespace DLS.Threads
         private static Random random = new Random();
         private static int scanTiming;
 
+<<<<<<< Updated upstream
+=======
+
+
+
+        //end add by paulchopping1986
+
+        public static bool signOn = false;
+        public static bool takedownOn = false;
+        public static bool leftallyOn = false;
+        public static bool rightallyOn = false;
+        public static bool rearlightOn = false;
+
+        // add by paulchopping1986
+
+
+>>>>>>> Stashed changes
         public static void Process()
         {
             while (true)
@@ -156,6 +173,7 @@ namespace DLS.Threads
                                     NativeFunction.Natives.PLAY_SOUND_FRONTEND(-1, Settings.SET_AUDIONAME, Settings.SET_AUDIOREF, true);
                                     blktOn = !blktOn;
                                     if (blktOn)
+<<<<<<< Updated upstream
                                     {
                                         activeVeh.IndStatus = IndStatus.Off;
                                         activeVeh.LightStage = LightStage.Off;
@@ -170,6 +188,23 @@ namespace DLS.Threads
                                     }
                                     else
                                     {
+=======
+                                    {
+                                        activeVeh.IndStatus = IndStatus.Off;
+                                        activeVeh.LightStage = LightStage.Off;
+                                        activeVeh.SBOn = false;
+                                        activeVeh.TAStage = TAStage.Off;
+                                        if (activeVeh.IntLightOn)
+                                            Lights.ToggleIntLight(activeVeh);
+                       
+                                        Lights.Update(activeVeh);
+                                        Lights.UpdateIndicator(activeVeh);
+                                        NativeFunction.Natives.SET_VEHICLE_LIGHTS(veh, 1);
+                                        continue;
+                                    }
+                                    else
+                                    {
+>>>>>>> Stashed changes
                                         NativeFunction.Natives.SET_VEHICLE_LIGHTS(veh, 0);
                                         continue;
                                     }
@@ -278,6 +313,36 @@ namespace DLS.Threads
                                         veh.ShouldVehiclesYieldToThisVehicle = true;
                                         veh.EmergencyLightingOverride = Vehicles.GetEL(veh);
                                         veh.IsSirenOn = false;
+<<<<<<< Updated upstream
+=======
+                                    }
+                                    else if (activeVeh.SBOn && activeVeh.LightStage != LightStage.Off)
+                                    {
+
+                                    }
+                                    Lights.UpdateSB(activeVeh);
+                                }
+                                else if (Controls.IsDLSControlDown(DLSControls.LIGHT_INTLT))
+                                {
+                                    NativeFunction.Natives.PLAY_SOUND_FRONTEND(-1, Settings.SET_AUDIONAME, Settings.SET_AUDIOREF, true);
+                                    Lights.ToggleIntLight(activeVeh);
+                                }
+
+
+
+                                // add by paulchopping1986
+
+
+                                //Sign Actions
+                                else if (Controls.IsDLSControlDown(DLSControls.LIGHT_SIGN))
+                                {
+                                    NativeFunction.Natives.PLAY_SOUND_FRONTEND(-1, Settings.SET_AUDIONAME, Settings.SET_AUDIOREF, true);
+                                    Lights.ToggleSignLight(activeVeh);
+                                    if (activeVeh.Vehicle.IsExtraEnabled(activeVeh.Sign))//activeVeh.Sign
+                                    {
+                                        signOn = true;
+
+>>>>>>> Stashed changes
                                     }
                                     else if (activeVeh.SBOn && activeVeh.LightStage != LightStage.Off)
                                     {
@@ -346,6 +411,7 @@ namespace DLS.Threads
                                     }
                                     else if (tone3ButtonDown)
                                     {
+<<<<<<< Updated upstream
                                         if (vehDLS.DoesVehicleHaveSirenStage(SirenStage.Warning))
                                         {
                                             activeVeh.SirenStage = SirenStage.Warning;
@@ -785,6 +851,620 @@ namespace DLS.Threads
                                     {
                                         sirenStageBeforeHorn = activeVeh.SirenStage;
                                     }
+=======
+                                        signOn = false;
+                                    }
+
+                                }
+
+                                //Takedown Actions
+                                else if (Controls.IsDLSControlDown(DLSControls.LIGHT_TAKEDOWN))
+                                {
+                                    NativeFunction.Natives.PLAY_SOUND_FRONTEND(-1, Settings.SET_AUDIONAME, Settings.SET_AUDIOREF, true);
+                                    Lights.ToggleTakedownLight(activeVeh);
+                                    if (activeVeh.Vehicle.IsExtraEnabled(activeVeh.Takedown))//activeVeh.Sign
+                                    {
+                                        takedownOn = true;
+
+                                    }
+                                    else
+                                    {
+                                        takedownOn = false;
+                                    }
+                                }
+
+                                //Left Ally Actions
+                                else if (Controls.IsDLSControlDown(DLSControls.LIGHT_ALLYLEFT))
+                                {
+                                    NativeFunction.Natives.PLAY_SOUND_FRONTEND(-1, Settings.SET_AUDIONAME, Settings.SET_AUDIOREF, true);
+                                    Lights.ToggleAllyLeftLight(activeVeh);
+                                    if (activeVeh.Vehicle.IsExtraEnabled(activeVeh.LeftAlly))//activeVeh.Sign
+                                    {
+                                        leftallyOn = true;
+
+                                    }
+                                    else
+                                    {
+                                        leftallyOn = false;
+                                    }
+                                }
+
+                                //Right Ally Actions
+                                else if (Controls.IsDLSControlDown(DLSControls.LIGHT_ALLYRIGHT))
+                                {
+                                    NativeFunction.Natives.PLAY_SOUND_FRONTEND(-1, Settings.SET_AUDIONAME, Settings.SET_AUDIOREF, true);
+                                    Lights.ToggleAllyRightLight(activeVeh);
+                                    if (activeVeh.Vehicle.IsExtraEnabled(activeVeh.RightAlly))//activeVeh.Sign
+                                    {
+                                        rightallyOn = true;
+
+                                    }
+                                    else
+                                    {
+                                        rightallyOn = false;
+                                    }
+                                }
+
+
+                                //Rear Ligths Actions
+                                else if (Controls.IsDLSControlDown(DLSControls.LIGHT_REARLIGHTS))
+                                {
+                                    NativeFunction.Natives.PLAY_SOUND_FRONTEND(-1, Settings.SET_AUDIONAME, Settings.SET_AUDIOREF, true);
+                                    Lights.ToggleRearLight(activeVeh);
+                                    if (activeVeh.Vehicle.IsExtraEnabled(activeVeh.RearLight))//activeVeh.Sign
+                                    {
+                                        rearlightOn = true;
+
+                                    }
+                                    else
+                                    {
+                                        rearlightOn = false;
+                                    }
+                                }
+                                //end add by paulchopping1986
+
+
+
+
+
+
+
+                                else if (Entrypoint.IndEnabled
+                                    && Controls.IsDLSControlDown(DLSControls.LIGHT_INDL))
+                                {
+                                    NativeFunction.Natives.PLAY_SOUND_FRONTEND(-1, Settings.SET_AUDIONAME, Settings.SET_AUDIOREF, true);
+                                    if (activeVeh.IndStatus == IndStatus.Left)
+                                        activeVeh.IndStatus = IndStatus.Off;
+                                    else
+                                        activeVeh.IndStatus = IndStatus.Left;
+                                    Lights.UpdateIndicator(activeVeh);
+                                }
+                                else if (Entrypoint.IndEnabled
+                                    && Controls.IsDLSControlDown(DLSControls.LIGHT_INDR))
+                                {
+                                    NativeFunction.Natives.PLAY_SOUND_FRONTEND(-1, Settings.SET_AUDIONAME, Settings.SET_AUDIOREF, true);
+                                    if (activeVeh.IndStatus == IndStatus.Right)
+                                        activeVeh.IndStatus = IndStatus.Off;
+                                    else
+                                        activeVeh.IndStatus = IndStatus.Right;
+                                    Lights.UpdateIndicator(activeVeh);
+                                }
+                                else if (Entrypoint.IndEnabled
+                                    && Controls.IsDLSControlDown(DLSControls.LIGHT_HAZRD))
+                                {
+                                    NativeFunction.Natives.PLAY_SOUND_FRONTEND(-1, Settings.SET_AUDIONAME, Settings.SET_AUDIOREF, true);
+                                    if (activeVeh.IndStatus == IndStatus.Both)
+                                        activeVeh.IndStatus = IndStatus.Off;
+                                    else
+                                        activeVeh.IndStatus = IndStatus.Both;
+                                    Lights.UpdateIndicator(activeVeh);
+                                }
+                                #endregion Lights Manager
+                                #region Siren Manager                                    
+                                if (activeVeh.SirenStage == SirenStage.Off)
+                                {
+                                    if (tone1ButtonDown)
+                                    {
+                                        if (vehDLS.DoesVehicleHaveSirenStage(SirenStage.One))
+                                        {
+                                            activeVeh.SirenStage = SirenStage.One;
+                                            Utils.Sirens.Update(activeVeh);
+
+                                            manActive = false;
+                                        }
+                                    }
+                                    else if (tone2ButtonDown)
+                                    {
+                                        if (vehDLS.DoesVehicleHaveSirenStage(SirenStage.Two))
+                                        {
+                                            activeVeh.SirenStage = SirenStage.Two;
+                                            Utils.Sirens.Update(activeVeh);
+
+                                            manActive = false;
+                                        }
+                                    }
+                                    else if (tone3ButtonDown)
+                                    {
+                                        if (vehDLS.DoesVehicleHaveSirenStage(SirenStage.Warning))
+                                        {
+                                            activeVeh.SirenStage = SirenStage.Warning;
+                                            Utils.Sirens.Update(activeVeh);
+
+                                            manActive = false;
+                                        }
+                                    }
+                                    else if (tone4ButtonDown)
+                                    {
+                                        if (vehDLS.DoesVehicleHaveSirenStage(SirenStage.Warning2))
+                                        {
+                                            activeVeh.SirenStage = SirenStage.Warning2;
+                                            Utils.Sirens.Update(activeVeh);
+
+                                            manActive = false;
+                                        }
+                                    }
+                                    else if (manButtonDown && !hornButtonDown)
+                                    {
+                                        if (vehDLS.DoesVehicleHaveSirenStage(SirenStage.One))
+                                            activeVeh.SirenStage = SirenStage.One;
+                                        else if (vehDLS.DoesVehicleHaveSirenStage(SirenStage.Two))
+                                            activeVeh.SirenStage = SirenStage.Two;
+                                        else if (vehDLS.DoesVehicleHaveSirenStage(SirenStage.Warning))
+                                            activeVeh.SirenStage = SirenStage.Warning;
+                                        else if (vehDLS.DoesVehicleHaveSirenStage(SirenStage.Warning2))
+                                            activeVeh.SirenStage = SirenStage.Warning2;
+                                        Utils.Sirens.Update(activeVeh);
+
+                                        manActive = true;
+                                    }
+                                    else if (manButtonDown && hornButtonDown)
+                                    {
+                                        if (vehDLS.DoesVehicleHaveSirenStage(SirenStage.Two))
+                                            activeVeh.SirenStage = SirenStage.Two;
+                                        else if (vehDLS.DoesVehicleHaveSirenStage(SirenStage.Warning))
+                                            activeVeh.SirenStage = SirenStage.Warning;
+                                        else if (vehDLS.DoesVehicleHaveSirenStage(SirenStage.Warning2))
+                                            activeVeh.SirenStage = SirenStage.Warning2;
+                                        Utils.Sirens.Update(activeVeh);
+
+                                        manActive = true;
+                                    }
+                                    else if (!manButtonDown && hornButtonDown)
+                                    {
+                                        activeVeh.SirenStage = SirenStage.Horn;
+                                        Utils.Sirens.Update(activeVeh);
+                                        hornButtonDown = true;
+                                        manActive = true;
+                                    }
+                                }
+                                else if (manActive)
+                                {
+                                    if (manButtonDown && !hornButtonDown)
+                                    {
+                                        if (activeVeh.SirenStage != SirenStage.One)
+                                        {
+                                            if (vehDLS.DoesVehicleHaveSirenStage(SirenStage.One))
+                                                activeVeh.SirenStage = SirenStage.One;
+                                            else if (vehDLS.DoesVehicleHaveSirenStage(SirenStage.Two))
+                                                activeVeh.SirenStage = SirenStage.Two;
+                                            else if (vehDLS.DoesVehicleHaveSirenStage(SirenStage.Warning))
+                                                activeVeh.SirenStage = SirenStage.Warning;
+                                            else if (vehDLS.DoesVehicleHaveSirenStage(SirenStage.Warning2))
+                                                activeVeh.SirenStage = SirenStage.Warning2;
+                                            Utils.Sirens.Update(activeVeh);
+                                        }
+                                    }
+                                    else if (manButtonDown && hornButtonDown)
+                                    {
+                                        if (activeVeh.SirenStage != SirenStage.Two)
+                                        {
+                                            activeVeh.SirenStage = SirenStage.Two;
+                                            Utils.Sirens.Update(activeVeh);
+                                        }
+                                    }
+                                    else if (!manButtonDown && hornButtonDown)
+                                    {
+                                        if (activeVeh.SirenStage != SirenStage.Horn)
+                                        {
+                                            activeVeh.SirenStage = SirenStage.Horn;
+                                            Utils.Sirens.Update(activeVeh);
+                                        }
+                                    }
+                                    else
+                                    {
+                                        activeVeh.SirenStage = SirenStage.Off;
+                                        Utils.Sirens.Update(activeVeh);
+                                        hornButtonDown = false;
+                                        manActive = false;
+                                    }
+                                }
+                                else
+                                {
+                                    if (!ahrnInterruptsSiren)
+                                    {
+                                        if (hornButtonDown)
+                                        {
+                                            if (!activeVeh.HornOn)
+                                            {
+                                                activeVeh.HornID = Sound.TempSoundID();
+                                                activeVeh.HornOn = true;
+                                                NativeFunction.Natives.PLAY_SOUND_FROM_ENTITY(activeVeh.HornID, vehDLS.SoundSettings.Horn, activeVeh.Vehicle, 0, 0, 0);
+                                            }
+                                        }
+                                        else if (activeVeh.HornOn)
+                                        {
+                                            Sound.ClearTempSoundID(activeVeh.HornID);
+                                            activeVeh.HornOn = false;
+                                        }
+                                    }
+
+                                    if (hornButtonDown && ahrnInterruptsSiren)
+                                    {
+                                        if (sirenStageBeforeHorn == SirenStage.Off)
+                                        {
+                                            sirenStageBeforeHorn = activeVeh.SirenStage;
+                                        }
+                                        if (activeVeh.SirenStage != SirenStage.Horn)
+                                        {
+                                            activeVeh.SirenStage = SirenStage.Horn;
+                                            activeVeh.HornOn = true;
+                                            Utils.Sirens.Update(activeVeh);
+                                        }
+                                    }
+                                    else if (manButtonDown)
+                                    {
+                                        if (sirenStageBeforeHorn == SirenStage.Off)
+                                        {
+                                            sirenStageBeforeHorn = activeVeh.SirenStage;
+                                        }
+                                        if (activeVeh.SirenStage != Utils.Sirens.GetNextStage(sirenStageBeforeHorn, vehDLS))
+                                        {
+                                            activeVeh.SirenStage = Utils.Sirens.GetNextStage(sirenStageBeforeHorn, vehDLS);
+                                            Utils.Sirens.Update(activeVeh);
+                                        }
+                                    }
+                                    else if (sirenStageBeforeHorn != SirenStage.Off)
+                                    {
+                                        activeVeh.SirenStage = sirenStageBeforeHorn;
+                                        Utils.Sirens.Update(activeVeh);
+
+                                        sirenStageBeforeHorn = SirenStage.Off;
+                                    }
+
+                                    if (sirenStageBeforeHorn == SirenStage.Off)
+                                    {
+                                        if (tone1ButtonDown)
+                                        {
+                                            if (activeVeh.SirenStage == SirenStage.One)
+                                            {
+                                                activeVeh.SirenStage = SirenStage.Off;
+                                                Utils.Sirens.Update(activeVeh);
+                                            }
+                                            else
+                                            {
+                                                if (vehDLS.DoesVehicleHaveSirenStage(SirenStage.One))
+                                                {
+                                                    activeVeh.SirenStage = SirenStage.One;
+                                                    Utils.Sirens.Update(activeVeh);
+                                                }
+                                            }
+                                        }
+                                        else if (tone2ButtonDown)
+                                        {
+                                            if (activeVeh.SirenStage == SirenStage.Two)
+                                            {
+                                                activeVeh.SirenStage = SirenStage.Off;
+                                                Utils.Sirens.Update(activeVeh);
+                                            }
+                                            else
+                                            {
+                                                if (vehDLS.DoesVehicleHaveSirenStage(SirenStage.Two))
+                                                {
+                                                    activeVeh.SirenStage = SirenStage.Two;
+                                                    Utils.Sirens.Update(activeVeh);
+                                                }
+                                            }
+                                        }
+                                        else if (tone3ButtonDown)
+                                        {
+                                            if (activeVeh.SirenStage == SirenStage.Warning)
+                                            {
+                                                activeVeh.SirenStage = SirenStage.Off;
+                                                Utils.Sirens.Update(activeVeh);
+                                            }
+                                            else
+                                            {
+                                                if (vehDLS.DoesVehicleHaveSirenStage(SirenStage.Warning))
+                                                {
+                                                    activeVeh.SirenStage = SirenStage.Warning;
+                                                    Utils.Sirens.Update(activeVeh);
+                                                }
+                                            }
+                                        }
+                                        else if (tone4ButtonDown)
+                                        {
+                                            if (activeVeh.SirenStage == SirenStage.Warning2)
+                                            {
+                                                activeVeh.SirenStage = SirenStage.Off;
+                                                Utils.Sirens.Update(activeVeh);
+                                            }
+                                            else
+                                            {
+                                                if (vehDLS.DoesVehicleHaveSirenStage(SirenStage.Warning2))
+                                                {
+                                                    activeVeh.SirenStage = SirenStage.Warning2;
+                                                    Utils.Sirens.Update(activeVeh);
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                                if (Controls.IsDLSControlDown(DLSControls.SIREN_AUX))
+                                {
+                                    if (activeVeh.AuxOn)
+                                    {
+                                        Sound.ClearTempSoundID(activeVeh.AuxID);
+                                        activeVeh.AuxOn = false;
+                                    }
+                                    else
+                                    {
+                                        activeVeh.AuxID = Sound.TempSoundID();
+                                        activeVeh.AuxOn = true;
+                                        NativeFunction.Natives.PLAY_SOUND_FROM_ENTITY(activeVeh.AuxID, vehDLS.SoundSettings.Tone1, activeVeh.Vehicle, 0, 0, 0);
+                                    }
+                                }
+                                else if (activeVeh.LightStage != LightStage.Off
+                                        && Controls.IsDLSControlDown(DLSControls.SIREN_TOGGLE))
+                                {
+                                    if (activeVeh.SirenStage == SirenStage.Off)
+                                    {
+                                        Utils.Sirens.MoveUpStage(activeVeh, true);
+                                    }
+                                    else
+                                    {
+                                        activeVeh.SirenStage = SirenStage.Off;
+                                        activeVeh.IsScanOn = false;
+                                        Utils.Sirens.Update(activeVeh);
+                                    }
+                                }
+                                else if (Controls.IsDLSControlDown(DLSControls.SIREN_SCAN))
+                                {
+                                    if (!activeVeh.IsScanOn)
+                                    {
+                                        scanTimer.Start();
+                                        scanTiming = random.Next(2, 8);
+                                        activeVeh.SirenStage = vehDLS.AvailableSirenStages[random.Next(1, vehDLS.AvailableSirenStages.Count - 1)];
+                                        Utils.Sirens.Update(activeVeh);
+                                    }
+                                    if (activeVeh.IsScanOn)
+                                    {
+                                        activeVeh.SirenStage = SirenStage.Off;
+                                        Utils.Sirens.Update(activeVeh);
+                                    }
+                                    activeVeh.IsScanOn = !activeVeh.IsScanOn;
+                                }
+                                if (activeVeh.IsScanOn && !(manButtonDown || (vehDLS.SoundSettings.AirHornInterruptsSiren.ToBoolean() && hornButtonDown)) && scanTimer.ElapsedMilliseconds >= (scanTiming * 1000))
+                                {
+                                    scanTimer.Restart();
+                                    scanTiming = random.Next(2, 8);
+                                    SirenStage old = activeVeh.SirenStage;
+                                    SirenStage _new = vehDLS.AvailableSirenStages[random.Next(1, vehDLS.AvailableSirenStages.Count)];
+                                    while (old == _new)
+                                    {
+                                        GameFiber.Yield();
+                                        _new = vehDLS.AvailableSirenStages[random.Next(1, vehDLS.AvailableSirenStages.Count)];
+                                    }
+                                    activeVeh.SirenStage = _new;
+                                    Utils.Sirens.Update(activeVeh);
+                                }
+                                if (activeVeh.IsScanOn && (tone1ButtonDown || tone2ButtonDown || tone3ButtonDown || tone4ButtonDown))
+                                    activeVeh.IsScanOn = false;
+                                if (!activeVeh.IsScanOn && scanTimer.IsRunning)
+                                    scanTimer.Reset();
+                                #endregion Siren Manager
+                            }
+                        }
+                        else if (Entrypoint.SCforNDLS)
+                        {
+                            Controls.DisableControls();
+                            #region Lights Manager
+                            if ((Game.IsKeyDown(Keys.F) || Game.IsControllerButtonDown(ControllerButtons.Y))
+                                && Vehicles.GetSirenKill(activeVeh) && activeVeh.SirenStage != SirenStage.Off)
+                            {
+                                activeVeh.SirenStage = SirenStage.Off;
+                                Utils.Sirens.Update(activeVeh);
+                            }
+                            if (Controls.IsDLSControlDown(DLSControls.LIGHT_TOGGLE))
+                            {
+                                switch (veh.IsSirenOn)
+                                {
+                                    case true:
+                                        NativeFunction.Natives.PLAY_SOUND_FRONTEND(-1, Settings.SET_AUDIONAME, Settings.SET_AUDIOREF, true);
+                                        activeVeh.LightStage = LightStage.Off;
+                                        veh.IsSirenOn = false;
+                                        activeVeh.SirenStage = SirenStage.Off;
+                                        activeVeh.IsScanOn = false;
+                                        Utils.Sirens.Update(activeVeh);
+                                        break;
+                                    case false:
+                                        NativeFunction.Natives.PLAY_SOUND_FRONTEND(-1, Settings.SET_AUDIONAME, Settings.SET_AUDIOREF, true);
+                                        activeVeh.LightStage = LightStage.Three;
+                                        veh.IsSirenOn = true;
+                                        veh.IsSirenSilent = true;
+                                        break;
+                                }
+                            }
+                            else if (Controls.IsDLSControlDown(DLSControls.LIGHT_INTLT))
+                            {
+                                NativeFunction.Natives.PLAY_SOUND_FRONTEND(-1, Settings.SET_AUDIONAME, Settings.SET_AUDIOREF, true);
+                                Lights.ToggleIntLight(activeVeh);
+                            }
+
+
+                            // add by paulchopping1986
+
+
+                            //Sign Actions
+                            else if (Controls.IsDLSControlDown(DLSControls.LIGHT_SIGN))
+                            {
+                                if (signOn)
+                                {
+                                    NativeFunction.Natives.PLAY_SOUND_FRONTEND(-1, Settings.SET_AUDIONAME, Settings.SET_AUDIOREF, true);
+                                    Lights.ToggleSignLight(activeVeh);
+                                    signOn = false;
+                                }
+                                else
+                                {
+                                    NativeFunction.Natives.PLAY_SOUND_FRONTEND(-1, Settings.SET_AUDIONAME, Settings.SET_AUDIOREF, true);
+                                    Lights.ToggleSignLight(activeVeh);
+                                    signOn = true;
+                                }
+                            }
+
+                            //Takedown Actions
+                            else if (Entrypoint.TakedownEnabled
+                                && Controls.IsDLSControlDown(DLSControls.LIGHT_TAKEDOWN))
+                            {
+                                NativeFunction.Natives.PLAY_SOUND_FRONTEND(-1, Settings.SET_AUDIONAME, Settings.SET_AUDIOREF, true);
+                                Lights.ToggleTakedownLight(activeVeh);
+                            }
+
+                            //Left Ally Actions
+                            else if (Entrypoint.AllyEnabled
+                                && Controls.IsDLSControlDown(DLSControls.LIGHT_ALLYLEFT))
+                            {
+                                NativeFunction.Natives.PLAY_SOUND_FRONTEND(-1, Settings.SET_AUDIONAME, Settings.SET_AUDIOREF, true);
+                                Lights.ToggleAllyLeftLight(activeVeh);
+                            }
+
+                            //Right Ally Actions
+                            else if (Entrypoint.AllyEnabled
+                                && Controls.IsDLSControlDown(DLSControls.LIGHT_ALLYRIGHT))
+                            {
+                                NativeFunction.Natives.PLAY_SOUND_FRONTEND(-1, Settings.SET_AUDIONAME, Settings.SET_AUDIOREF, true);
+                                Lights.ToggleAllyRightLight(activeVeh);
+                            }
+
+
+                            //Rear Ligths Actions
+                            else if (Entrypoint.RearLightEnabled
+                                && Controls.IsDLSControlDown(DLSControls.LIGHT_REARLIGHTS))
+                            {
+                                NativeFunction.Natives.PLAY_SOUND_FRONTEND(-1, Settings.SET_AUDIONAME, Settings.SET_AUDIOREF, true);
+                                Lights.ToggleRearLight(activeVeh);
+                            }
+
+
+
+                            //end add by paulchopping1986
+
+
+
+                            else if (Entrypoint.IndEnabled
+                                    && Controls.IsDLSControlDown(DLSControls.LIGHT_INDL))
+                            {
+                                NativeFunction.Natives.PLAY_SOUND_FRONTEND(-1, Settings.SET_AUDIONAME, Settings.SET_AUDIOREF, true);
+                                if (activeVeh.IndStatus == IndStatus.Left)
+                                    activeVeh.IndStatus = IndStatus.Off;
+                                else
+                                    activeVeh.IndStatus = IndStatus.Left;
+                                Lights.UpdateIndicator(activeVeh);
+                            }
+                            else if (Entrypoint.IndEnabled
+                                    && Controls.IsDLSControlDown(DLSControls.LIGHT_INDR))
+                            {
+                                NativeFunction.Natives.PLAY_SOUND_FRONTEND(-1, Settings.SET_AUDIONAME, Settings.SET_AUDIOREF, true);
+                                if (activeVeh.IndStatus == IndStatus.Right)
+                                    activeVeh.IndStatus = IndStatus.Off;
+                                else
+                                    activeVeh.IndStatus = IndStatus.Right;
+                                Lights.UpdateIndicator(activeVeh);
+                            }
+                            else if (Entrypoint.IndEnabled
+                                    && Controls.IsDLSControlDown(DLSControls.LIGHT_HAZRD))
+                            {
+                                NativeFunction.Natives.PLAY_SOUND_FRONTEND(-1, Settings.SET_AUDIONAME, Settings.SET_AUDIOREF, true);
+                                if (activeVeh.IndStatus == IndStatus.Both)
+                                    activeVeh.IndStatus = IndStatus.Off;
+                                else
+                                    activeVeh.IndStatus = IndStatus.Both;
+                                Lights.UpdateIndicator(activeVeh);
+                            }
+                            #endregion Lights Manager
+                            #region Siren Manager
+                            if (activeVeh.SirenStage == SirenStage.Off)
+                            {
+                                if (tone1ButtonDown)
+                                {
+                                    activeVeh.SirenStage = SirenStage.One;
+                                    Utils.Sirens.Update(activeVeh, false);
+
+                                    manActive = false;
+                                }
+                                else if (tone2ButtonDown)
+                                {
+                                    activeVeh.SirenStage = SirenStage.Two;
+                                    Utils.Sirens.Update(activeVeh, false);
+
+                                    manActive = false;
+                                }
+                                else if (tone3ButtonDown)
+                                {
+                                    activeVeh.SirenStage = SirenStage.Warning;
+                                    Utils.Sirens.Update(activeVeh, false);
+
+                                    manActive = false;
+                                }
+                                else if (tone4ButtonDown)
+                                {
+                                    activeVeh.SirenStage = SirenStage.Warning2;
+                                    Utils.Sirens.Update(activeVeh, false);
+
+                                    manActive = false;
+                                }
+                                else if (manButtonDown && !hornButtonDown)
+                                {
+                                    activeVeh.SirenStage = SirenStage.One;
+                                    Utils.Sirens.Update(activeVeh, false);
+
+                                    manActive = true;
+                                }
+                                else if (manButtonDown && hornButtonDown)
+                                {
+                                    activeVeh.SirenStage = SirenStage.Two;
+                                    Utils.Sirens.Update(activeVeh, false);
+
+                                    manActive = true;
+                                }
+                                else if (!manButtonDown && hornButtonDown)
+                                {
+                                    activeVeh.SirenStage = SirenStage.Horn;
+                                    Utils.Sirens.Update(activeVeh, false);
+
+                                    manActive = true;
+                                }
+                            }
+                            else if (manActive)
+                            {
+                                if (manButtonDown && !hornButtonDown)
+                                {
+                                    if (activeVeh.SirenStage != SirenStage.One)
+                                    {
+                                        activeVeh.SirenStage = SirenStage.One;
+                                        Utils.Sirens.Update(activeVeh, false);
+                                    }
+                                }
+                                else if (manButtonDown && hornButtonDown)
+                                {
+                                    if (activeVeh.SirenStage != SirenStage.Two)
+                                    {
+                                        activeVeh.SirenStage = SirenStage.Two;
+                                        Utils.Sirens.Update(activeVeh, false);
+                                    }
+                                }
+                                else if (!manButtonDown && hornButtonDown)
+                                {
+>>>>>>> Stashed changes
                                     if (activeVeh.SirenStage != SirenStage.Horn)
                                     {
                                         activeVeh.SirenStage = SirenStage.Horn;
@@ -805,6 +1485,42 @@ namespace DLS.Threads
                                 }
                                 else if (sirenStageBeforeHorn != SirenStage.Off)
                                 {
+<<<<<<< Updated upstream
+=======
+                                    activeVeh.SirenStage = SirenStage.Off;
+                                    Utils.Sirens.Update(activeVeh, false);
+                                    manActive = false;
+                                }
+                            }
+                            else
+                            {
+                                if (hornButtonDown)
+                                {
+                                    if (sirenStageBeforeHorn == SirenStage.Off)
+                                    {
+                                        sirenStageBeforeHorn = activeVeh.SirenStage;
+                                    }
+                                    if (activeVeh.SirenStage != SirenStage.Horn)
+                                    {
+                                        activeVeh.SirenStage = SirenStage.Horn;
+                                        Utils.Sirens.Update(activeVeh, false);
+                                    }
+                                }
+                                else if (manButtonDown)
+                                {
+                                    if (sirenStageBeforeHorn == SirenStage.Off)
+                                    {
+                                        sirenStageBeforeHorn = activeVeh.SirenStage;
+                                    }
+                                    if (activeVeh.SirenStage != Utils.Sirens.GetNextStage(sirenStageBeforeHorn))
+                                    {
+                                        activeVeh.SirenStage = Utils.Sirens.GetNextStage(sirenStageBeforeHorn);
+                                        Utils.Sirens.Update(activeVeh, false);
+                                    }
+                                }
+                                else if (sirenStageBeforeHorn != SirenStage.Off)
+                                {
+>>>>>>> Stashed changes
                                     activeVeh.SirenStage = sirenStageBeforeHorn;
                                     Utils.Sirens.Update(activeVeh, false);
 
@@ -891,6 +1607,7 @@ namespace DLS.Threads
                                     activeVeh.SirenStage = SirenStage.Off;
                                     activeVeh.IsScanOn = false;
                                     Utils.Sirens.Update(activeVeh);
+<<<<<<< Updated upstream
                                 }
                             }
                             else if (Controls.IsDLSControlDown(DLSControls.SIREN_SCAN))
@@ -923,6 +1640,40 @@ namespace DLS.Threads
                                 activeVeh.SirenStage = _new;
                                 Utils.Sirens.Update(activeVeh, false);
                             }
+=======
+                                }
+                            }
+                            else if (Controls.IsDLSControlDown(DLSControls.SIREN_SCAN))
+                            {
+                                if (!activeVeh.IsScanOn)
+                                {
+                                    scanTimer.Start();
+                                    scanTiming = random.Next(2, 8);
+                                    activeVeh.SirenStage = (SirenStage)random.Next(1, 4);
+                                    Utils.Sirens.Update(activeVeh, false);
+                                }
+                                if (activeVeh.IsScanOn)
+                                {
+                                    activeVeh.SirenStage = SirenStage.Off;
+                                    Utils.Sirens.Update(activeVeh, false);
+                                }
+                                activeVeh.IsScanOn = !activeVeh.IsScanOn;
+                            }
+                            if (activeVeh.IsScanOn && !manButtonDown && !hornButtonDown && scanTimer.ElapsedMilliseconds >= (scanTiming * 1000))
+                            {
+                                scanTimer.Restart();
+                                scanTiming = random.Next(2, 8);
+                                SirenStage old = activeVeh.SirenStage;
+                                SirenStage _new = (SirenStage)random.Next(1, 4);
+                                while (old == _new)
+                                {
+                                    GameFiber.Yield();
+                                    _new = (SirenStage)random.Next(1, 4);
+                                }
+                                activeVeh.SirenStage = _new;
+                                Utils.Sirens.Update(activeVeh, false);
+                            }
+>>>>>>> Stashed changes
                             if (activeVeh.IsScanOn && (tone1ButtonDown || tone2ButtonDown || tone3ButtonDown || tone4ButtonDown))
                                 activeVeh.IsScanOn = false;
                             if (!activeVeh.IsScanOn && scanTimer.IsRunning)

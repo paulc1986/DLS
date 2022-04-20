@@ -27,11 +27,11 @@
 			<LightbarExtras>
 			<!-- Use the Extra Numerical Value only, i.e. extra_ten = 10-->
 			<!-- Normal Extras: 1,2,3,4,5,6,7,8,9,10,11,12-->
-			<Sign>8</Sign>
-			<Takedown>9</Takedown>
-			<LeftAlly>10</LeftAlly>
-			<RightAlly>11</RightAlly>
-			<RearLights>12</RearLights>
+			<Sign>11</Sign>
+			<Takedown>12</Takedown>
+			<LeftAlly>13</LeftAlly>
+			<RightAlly>14</RightAlly>
+			<RearLights>15</RearLights>
 		</LightbarExtras>
 		<!-- Order of the Light Stages (DEFAULT = 1,2,3), does not include 0 (Off) -->
 		<StageOrder></StageOrder>

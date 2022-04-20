@@ -29,6 +29,14 @@ namespace DLS
             PlayerVehicle = playerVehicle;
             DefaultEL = vehicle.EmergencyLighting;
             IsSirenSilent = vehicle.IsSirenSilent;
+            //add by paulchopping1986
+            Sign = 8; //ExtraNumber
+            Takedown = 9;//ExtraNumber
+            RightAlly = 11;//ExtraNumber
+            LeftAlly = 10;//ExtraNumber
+            RearLight = 12;//ExtraNumber
+            //end add by paulchopping1986
+
             IsScanOn = false;
             if (vehicle && vehicle.GetDLS() != null)
             {
@@ -72,6 +80,19 @@ namespace DLS
         public LightStage TempWailLightStage { get; set; }
         public SirenStage SirenStage { get; set; }
         public TAStage TAStage { get; set; }
+<<<<<<< Updated upstream
+=======
+        
+        public bool blktOn { get; set; }
+        //add by paulchopping1986
+        public int Sign { get; set; }
+        public int Takedown { get; set; }
+        public int RightAlly { get; set; }
+        public int LeftAlly { get; set; }
+        public int RearLight { get; set; }
+
+        //end add by paulchopping1986
+>>>>>>> Stashed changes
         public bool SBOn { get; set; }
         public bool AuxOn { get; set; }
         public bool HornOn { get; set; }
@@ -88,6 +109,13 @@ namespace DLS
         public EmergencyLighting DefaultEL { get; set; }
         public bool IsSirenSilent { get; set; }
         public bool IsScanOn { get; set; }
+<<<<<<< Updated upstream
+=======
+
+        public int? AirManuState { get; set; } = null;
+        public int? AirManuID { get; set; } = null;
+        public bool IsUsingManual { get; set; } = false;
+>>>>>>> Stashed changes
     }
 
     public enum LightStage

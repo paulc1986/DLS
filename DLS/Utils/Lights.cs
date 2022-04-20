@@ -1192,6 +1192,92 @@ namespace DLS.Utils
             veh.GetActiveVehicle().IntLightOn = !veh.GetActiveVehicle().IntLightOn;
         }
 
+
+        //add by paulchopping1986
+
+        //SIGN LIGHT
+        public static void ToggleSignLight(ActiveVehicle activeVeh)
+        {
+                if (activeVeh.Vehicle.IsExtraEnabled(activeVeh.Sign))//activeVeh.Sign
+            {
+                    activeVeh.Vehicle.SetExtra(activeVeh.Sign, false);
+                
+                }
+                else
+                {
+                    activeVeh.Vehicle.SetExtra(activeVeh.Sign, true);
+                }
+           
+        }
+
+
+        //TAKEDOWN LIGHTS
+        public static void ToggleTakedownLight(ActiveVehicle activeVeh)
+        {
+           
+                if (activeVeh.Vehicle.IsExtraEnabled(activeVeh.Takedown))
+                {
+                    activeVeh.Vehicle.SetExtra(activeVeh.Takedown, false);
+                }
+                else
+                {
+                    activeVeh.Vehicle.SetExtra(activeVeh.Takedown, true);
+                }
+            
+        }
+
+        //LEFT ALLY
+        public static void ToggleAllyLeftLight(ActiveVehicle activeVeh)
+        {
+           
+                if (activeVeh.Vehicle.IsExtraEnabled(activeVeh.LeftAlly))
+                {
+                    activeVeh.Vehicle.SetExtra(activeVeh.LeftAlly, false);
+                }
+                else
+                {
+                    activeVeh.Vehicle.SetExtra(activeVeh.LeftAlly, true);
+                }
+           
+        }
+
+        //RIGHT ALLY
+        public static void ToggleAllyRightLight(ActiveVehicle activeVeh)
+        {
+           
+                if (activeVeh.Vehicle.IsExtraEnabled(activeVeh.RightAlly))
+                {
+                    activeVeh.Vehicle.SetExtra(activeVeh.RightAlly, false);
+                }
+                else
+                {
+                    activeVeh.Vehicle.SetExtra(activeVeh.RightAlly, true);
+                }
+          ;
+        }
+
+        //REAR LIGHTS
+        public static void ToggleRearLight(ActiveVehicle activeVeh)
+        {
+            
+                if (activeVeh.Vehicle.IsExtraEnabled(activeVeh.RearLight))
+                {
+                    activeVeh.Vehicle.SetExtra(activeVeh.RearLight, false);
+                }
+                else
+                {
+                    activeVeh.Vehicle.SetExtra(activeVeh.RearLight, true);
+                }
+            
+        }
+
+
+        //end add by paulchopping1986
+
+
+
+
+
         public static void UpdateIndicator(ActiveVehicle activeVeh)
         {
             switch (activeVeh.IndStatus)

@@ -60,6 +60,25 @@ namespace DLS.Utils
                     return Game.IsKeyDown(Settings.LIGHT_INDR);
                 case DLSControls.LIGHT_HAZRD:
                     return Game.IsKeyDown(Settings.LIGHT_HAZRD);
+<<<<<<< Updated upstream
+=======
+
+                // add by paulchopping1986
+                //EXTRA CONTROLS
+                case DLSControls.LIGHT_SIGN:
+                    return Game.IsKeyDown(Settings.LIGHT_SIGN);
+                case DLSControls.LIGHT_TAKEDOWN:
+                    return Game.IsKeyDown(Settings.LIGHT_TAKEDOWN);
+                case DLSControls.LIGHT_ALLYLEFT:
+                    return Game.IsKeyDown(Settings.LIGHT_ALLYLEFT);
+                case DLSControls.LIGHT_ALLYRIGHT:
+                    return Game.IsKeyDown(Settings.LIGHT_ALLYRIGHT);
+                case DLSControls.LIGHT_REARLIGHTS:
+                    return Game.IsKeyDown(Settings.LIGHT_REARLIGHTS);
+                //END EXTRA CONTROLS
+                //end add by paulchopping1986
+
+>>>>>>> Stashed changes
                 default:
                     return false;
             }
@@ -160,6 +179,16 @@ namespace DLS.Utils
         LIGHT_INDR,
         LIGHT_HAZRD,
         GEN_LOCKALL,
+<<<<<<< Updated upstream
+=======
+        // add by paulchopping1986
+        LIGHT_SIGN,
+        LIGHT_TAKEDOWN,
+        LIGHT_ALLYLEFT,
+        LIGHT_ALLYRIGHT,
+        LIGHT_REARLIGHTS,
+        //end add by paulchopping1986
+>>>>>>> Stashed changes
         UI_TOGGLE
     }
 }

@@ -14,6 +14,7 @@
     <Deterministic>true</Deterministic>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup>
     <RunPostBuildEvent>Always</RunPostBuildEvent>
@@ -43,7 +44,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="RagePluginHookSDK">
-      <HintPath>..\references\RagePluginHookSDK.dll</HintPath>
+      <HintPath>..\..\..\References\RAGEPluginHook_1_87_1293_16189_SDK\RagePluginHookSDK.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System" />
@@ -320,6 +321,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\yelp_on.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\allyleft_off.png" />
+    <Content Include="Resources\allyleft_on.png" />
+    <Content Include="Resources\allyright_off.png" />
+    <Content Include="Resources\allyright_on.png" />
+    <Content Include="Resources\rearlight_off.png" />
+    <Content Include="Resources\rearlight_on.png" />
+    <Content Include="Resources\sign_off.png" />
+    <Content Include="Resources\sign_on.png" />
+    <Content Include="Resources\takedown_off.png" />
+    <Content Include="Resources\takedown_on.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

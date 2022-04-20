@@ -216,6 +216,12 @@ namespace DLS
 
         [XmlElement("LSAIYield")]
         public LSAIYield LSAIYield { get; set; } = new LSAIYield();
+        
+        //add by paulchopping1986
+        [XmlElement("LightbarExtras")]
+        public LightbarExtras LightbarExtras { get; set; } = new LightbarExtras();
+        //end add by paulchopping1986
+
     }
 
     public class LSAIYield
@@ -250,4 +256,25 @@ namespace DLS
         [XmlElement("EnvColor")]
         public SirenColor Color { get; set; }
     }
+
+    // add by paulchopping1986
+    public class LightbarExtras
+    {
+        [XmlElement("Sign")]
+        public int Sign { get; set; }
+
+        [XmlElement("Takedown")]
+        public int Takedown { get; set; }
+
+        [XmlElement("LeftAlly")]
+        public int LeftAlly { get; set; }
+
+        [XmlElement("RightAlly")]
+        public int RightAlly { get; set; }
+
+        [XmlElement("RearLights")]
+        public int RearLights { get; set; }
+    }
+    //end add by paulchopping1986
+
 }
